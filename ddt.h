@@ -297,6 +297,9 @@ public:
     }
 
     // TODO: create proper destructor.
+    ~ddt() {
+        freeTree(tree);
+    }
 
     void insert(const string& key, const T& value) {
         tree = insertTreeNode(tree, key, value);
