@@ -296,7 +296,6 @@ public:
         tree = createAndInitTreeNode(key, value);
     }
 
-    // TODO: create proper destructor.
     ~ddt() {
         freeTree(tree);
     }
