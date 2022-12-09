@@ -177,7 +177,7 @@ class ddt {
     {
         size_t key_hash = hash(key);
         size_t root_key_hash;
-        if (root != NULL)
+        if (root != nullptr)
             root_key_hash = hash(root->key);
         else
             root_key_hash = 0;
@@ -223,7 +223,7 @@ class ddt {
     {
         size_t key_hash = hash(key);
         size_t root_key_hash;
-        if (root != NULL)
+        if (root != nullptr)
             root_key_hash = hash(root->key);
         else
             root_key_hash = 0;
@@ -237,8 +237,8 @@ class ddt {
                 /* Check for leaf node: both left and right child nodes are empty. */
                 if (!(root->left || root->right)) {
                     free(root);
-                    return NULL;
-                } else if (root->left == NULL ^ root->right == NULL) { // If either are empty
+                    return nullptr;
+                } else if (root->left == nullptr ^ root->right == nullptr) { // If either are empty
                     TREE* temp = either(root->right, root->left); // No code duplication
                     free(root);
                     root = temp;
@@ -281,7 +281,7 @@ class ddt {
 
     T getValueByKey(TREE* root, const string& key)
     {
-        if (root == NULL)
+        if (root == nullptr)
             return "  __NO_SUCH_KEY_FOUND__  ";
 
         size_t key_hash = hash(key);
