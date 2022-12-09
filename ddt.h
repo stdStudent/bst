@@ -219,7 +219,7 @@ class ddt {
         return firstChoice ? firstChoice : secondChoice;
     }
 
-    TREE* removeNode(TREE* root, const char* key)
+    TREE* removeNode(TREE* root, const string& key)
     {
         size_t key_hash = hash(key);
         size_t root_key_hash;

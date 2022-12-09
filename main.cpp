@@ -17,6 +17,10 @@ int main() {
     d.print();
     std::cout << d.find("bcdc") << std::endl;
 
+    d.remove("a1a");
+    d.remove("abcd");
+    d.print();
+
     //d.clear();
     d.insert("abbbd", "cool");
     d.insert("accbdd", "not cool");
