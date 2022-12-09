@@ -99,17 +99,13 @@ class ddt {
             freeTree(root->left);
             freeTree(root->right);
 
-            // TODO: make it more CPP-like.
-            free(root->value);
-            free(root->key);
-            free(root);
+            delete root;
         }
     }
 
     TREE* createAndInitTreeNode(const string& key, const T& value)
     {
-        // TODO: make it more CPP-like.
-        TREE* newNode = (TREE*)malloc(sizeof(TREE));
+        TREE* newNode = new TREE;
 
         newNode->key    = key;
         newNode->value  = value;
@@ -236,11 +232,11 @@ class ddt {
             else {
                 /* Check for leaf node: both left and right child nodes are empty. */
                 if (!(root->left || root->right)) {
-                    free(root);
+                    delete root;
                     return nullptr;
                 } else if (root->left == nullptr ^ root->right == nullptr) { // If either are empty
                     TREE* temp = either(root->right, root->left); // No code duplication
-                    free(root);
+                    delete root;
                     root = temp;
                 } else {
                     TREE* temp = root->left;
@@ -289,8 +285,7 @@ class ddt {
 
         if (key_hash == root_value_hash) {
             return root->value;
-        }
-        else if (key_hash < root_value_hash)
+        } else if (key_hash < root_value_hash)
             return getValueByKey(root->left, key);
         else  /* key_hash > root_value_hash */
             return getValueByKey(root->right, key);
@@ -311,12 +306,6 @@ public:
         tree = removeNode(tree, key);
     }
 
-    // FIXME:
-    void clear() {
-        freeTree(tree);
-    }
-
-    // FIXME:
     void reinit(const string& key, const T& value) {
         clearTree(tree, key, value);
     }

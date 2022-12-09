@@ -21,7 +21,7 @@ int main() {
     d.remove("abcd");
     d.print();
 
-    //d.clear();
+    d.reinit("a4r22", "try");
     d.insert("abbbd", "cool");
     d.insert("accbdd", "not cool");
     d.print();
